@@ -15,7 +15,7 @@ CRGB leds[NUM_LEDS];
 void setup() { 
   Serial.begin(57600);
   Serial.println("resetting");
-  LEDS.addLeds<WS2812,DATA_PIN,RGB>(leds,NUM_LEDS);
+  LEDS.addLeds<WS2812B,DATA_PIN,RGB>(leds,NUM_LEDS);
   LEDS.setBrightness(84);
 }
 
@@ -87,3 +87,12 @@ void loop() {
     delay(500);
   }
 }
+
+
+/*
+  Local Variables:
+  mode: c++
+  c-basic-offset: 4
+  indent-tabs-mode: nil
+  End:
+*/
