@@ -22,18 +22,14 @@
 #include "controller.h"
 #include "config.h"
 
-#include <iterator>  // For std::size()
-
 
 namespace liteguider
 {
-#if 0
-    template <typename T, std::size_t N>
-    constexpr std::size_t size(T const (&array)[N]) noexcept
+    template <typename T, size_t N>
+    constexpr size_t size(T const (&array)[N]) noexcept
     {
         return N;
     }
-#endif  // 0
 
     controller::controller()
         : leds_{}
@@ -43,13 +39,13 @@ namespace liteguider
         // This assumes we are using an WS2812B (NEOPIXEL) LED strip.
         FastLED.addLeds<WS2812B,
                         liteguider::DATA_PIN,
-                        RGB>(this->leds_, std::size(this->leds_));
+                        RGB>(this->leds_, size(this->leds_));
 
         FastLED.setBrightness(liteguider::BRIGHTNESS);
 
         // Lay out the pods.
-        auto & begin = this->leds_;
-        auto & end   = begin + POD_WIDTH;
+        auto begin = this->leds_;
+        auto end   = begin + POD_WIDTH;
         bool has_sensor = true;
 
         for (auto & pod : this->pods_) {

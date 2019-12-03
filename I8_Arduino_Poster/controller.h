@@ -23,6 +23,8 @@
 #define LITEGUIDER_CONTROLLER_H
 
 #include "config.h"
+#include "pod.h"
+#include "bike.h"
 
 #include <FastLED.h>
 
@@ -48,7 +50,7 @@ namespace liteguider
         CRGB leds_[NUM_LEDS];
 
         /// Maximum number of pods on a given LED strip.
-        constexpt int NUM_PODS =
+        constexpr static int NUM_PODS =
             (NUM_LEDS + POD_SPACING) / (POD_WIDTH + POD_SPACING);
 
         pod pods_[NUM_PODS];

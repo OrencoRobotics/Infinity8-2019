@@ -43,7 +43,7 @@ namespace liteguider
         ~pod();
 
         /// Set pod layout.
-        void layout(CRGB * begin, CRBG * end, bool has_sensor);
+        void layout(CRGB * begin, CRGB * end, bool has_sensor);
 
     private:
 

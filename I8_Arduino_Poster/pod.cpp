@@ -30,7 +30,7 @@ namespace liteguider
     {
     }
 
-    ~pod::pod()
+    pod::~pod()
     {
     }
 

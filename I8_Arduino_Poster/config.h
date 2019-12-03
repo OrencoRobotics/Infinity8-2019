@@ -22,7 +22,7 @@
 #ifndef LITEGUIDER_CONFIG_H
 #define LITEGUIDER_CONFIG_H
 
-#include <cstdint>
+#include <stdint.h>
 
 
 namespace liteguider
