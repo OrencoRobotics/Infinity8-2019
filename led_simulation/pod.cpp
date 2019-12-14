@@ -68,7 +68,9 @@ namespace liteguider
 
     bool pod::sensor_tripped(CRGB * led) const
     {
-        return led == mid_point(this->begin_, this->end_);
+        return
+            this->has_sensor_
+            && led == mid_point(this->begin_, this->end_);
     }
 
     void pod::activate()
