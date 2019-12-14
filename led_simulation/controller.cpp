@@ -76,19 +76,21 @@ namespace liteguider
 
             pod * const p = led_to_pod(led);
 
-            if (p && p->sensor_tripped(led)) {
-                // Activate pods ahead of bike.
-                constexpr int pod_ahead       = 2;
-                constexpr int pod_activations = 2;
+            if (p) {
+                if (p->sensor_tripped(led)) {
+                    // Activate pods ahead of bike.
+                    constexpr int pod_ahead       = 2;
+                    constexpr int pod_activations = 2;
 
-                pod * const pbegin = p + pod_ahead;
-                pod * const pend   =
-                    min(pbegin + pod_activations,
-                        this->pods_
-                        + liteguider::size(this->pods_));
+                    pod * const pbegin = p + pod_ahead;
+                    pod * const pend   =
+                        min(pbegin + pod_activations,
+                            this->pods_
+                            + liteguider::size(this->pods_));
 
-                for (pod * a = pbegin; a < pend; ++a)
-                    a->activate();
+                    for (pod * a = pbegin; a < pend; ++a)
+                        a->activate();
+                }
 
                 // Deactivate pod behind bike.
                 constexpr int pod_behind = 1;
