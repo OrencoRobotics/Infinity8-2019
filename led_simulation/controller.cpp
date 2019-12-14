@@ -100,7 +100,7 @@ namespace liteguider
             }
 
             FastLED.show();
-            delay(500);
+            delay(700);
         }
     }
 
